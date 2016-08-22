@@ -1,0 +1,15 @@
+
+p
+{
+	background-size:100% 150%;
+	background-color: #ffffff;
+	background-repeat:no-repeat;
+	background-position:center top;
+	text-align:left;
+	text-decoration:none ;/*none,underline overline,line-through*/
+	text-transform: uppercase;
+	line-height: 1.5;
+	word-spacing: 5px;
+	letter-spacing:5px;
+	color: #000000;
+}
