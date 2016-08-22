@@ -18,4 +18,15 @@
 	</servlet>
 
 
+	<servlet>
+	<servlet-name>hero</servlet-name>
+	<jsp-file>/jsp/hero.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+     <servlet-name>hero</servlet-name>
+     <url-pattern>/hero</url-pattern>
+	</servlet-mapping>
+	
+   
 </web-app>
