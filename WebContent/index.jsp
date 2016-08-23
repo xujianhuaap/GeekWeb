@@ -42,6 +42,11 @@ li a:hover {
 	width:100px;
 	background-color: #F5F5F5;
 }
+#content{
+	background-color:red;
+	position: absolute;
+    right: 0px;
+}
 </style>
 <title>学习笔记</title>
 </head>
@@ -73,16 +78,18 @@ li a:hover {
 		for(var i=0;i<cnt;i++){
 			var li=document.createElement("LI");
 			var text=document.createTextNode(name+"第"+i+"章");
+			
 			li.id=name+i;
 			li.style.listStyleType="none";
 			li.style.marginLeft="0";
-			li.appendChild(text)
+			li.appendChild(text);
 			navigator.appendChild(li);
 		}
 	}
+	function render(node){node.style.backgroundColor="red"}
+	
 	</script>
 	<jsp:include page="/jsp/title.jsp" flush="true" />
-	<div>
 	<!--导航条-->
 	<ul id=nav_container >
 			<li class=li_normal><a class=nav_active id=android onClick="refreshNavigator('android')">Android</a></li>
@@ -98,9 +105,13 @@ li a:hover {
 	</ul>
 	<!-- 左边菜单 -->
 	<ul id=left_navigator>
-
 	</ul>
-	</div>
+
+	
+	<span id="content" class="right" >
+	<iframe width="80%" height="auto"src="https://www.android.com/">
+	</iframe>
+	</span>
 	<div>
 	<a href="/GeekWeb/hero">Go...</a>
 	</div>
