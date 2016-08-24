@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html >
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <head>
@@ -9,7 +9,10 @@
 	background-color: #919191;
 	width:100%;
 	margin:0px;
-	padding:0;
+	padding:0px;
+	 -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .li_normal {
@@ -21,36 +24,55 @@ li a{
 	display: block;
     padding: 12px 16px;
     text-decoration: none;
+    text-align:center;
 }
 li a.nav_normal {
 	color: #000;
+	text-align:center;
     background-color: #919191;
 }
 li a.nav_active {
     background-color: #4CAF50;
+    text-align:center;
     color: white;
 }
 li a:hover {
     background-color: #4CAF50;
+    text-align:center;
     color: white;
 }
 /**/
 #left_navigator{
 	padding-top: 10px;
 	padding-left: 0px;
-	margin-top: 0px;
-	width:100px;
+	padding-right: 0px;
+	padding-bottom:0px;
+	margin: 0px;
+	height:800px;
+	width:10%;
+	overflow:auto;
+	float:left;
 	background-color: #F5F5F5;
+	 -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 #content{
-	background-color:red;
-	position: absolute;
-    right: 0px;
+	background-color:white;
+	margin:0px;
+	padding:0px;
+	position:absolute;
+	width:90%;
+	height:800px;
+	right:0px;
+	 -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 </style>
 <title>学习笔记</title>
 </head>
-<body>
+<body onload="refreshNavigator('android')">
 	<script type="text/javascript">
 	//顶部导航
 		function refreshNavigator(id){
@@ -73,13 +95,16 @@ li a:hover {
 			}
 		}
 	//左边导航
+	 item={id:"01",url:"http://www.w3schools.com/js/js_object_definition.asp",content:"JAVASCRIPT"}
 	function loadingNavigatorItems(name,cnt){
-		var navigator=document.getElementById("left_navigator");
-		for(var i=0;i<cnt;i++){
+		var nodes=document.getElementsByClassName("left_nav");
+		var temp=10-nodes.length;
+		for(var i=0;i<temp;i++){
 			var li=document.createElement("LI");
 			var text=document.createTextNode(name+"第"+i+"章");
+			var navigator=document.getElementById("left_navigator");
 			
-			li.id=name+i;
+			li.class="left_nav";
 			li.style.listStyleType="none";
 			li.style.marginLeft="0";
 			li.appendChild(text);
@@ -105,13 +130,14 @@ li a:hover {
 	</ul>
 	<!-- 左边菜单 -->
 	<ul id=left_navigator>
+	
 	</ul>
 
 	
-	<span id="content" class="right" >
-	<iframe width="80%" height="auto"src="https://www.android.com/">
+	<p id="content"   >
+	<iframe  width="100%" height="800px"src="https://www.android.com/">
 	</iframe>
-	</span>
+	</p>
 	<div>
 	<a href="/GeekWeb/hero">Go...</a>
 	</div>
