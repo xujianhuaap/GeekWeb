@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="com.xjh.bean.LeftNavItem"%>
 <html >
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -57,6 +58,17 @@ li a:hover {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+.lef_nav{
+	text-align:center;
+	list-style-type:none;
+	width:100%;
+	font-size:14px;
+}
+.lef_nav:hover{
+ 	background-color: #919191;
+    text-align:center;
+    color: white;
+}
 #content{
 	background-color:white;
 	margin:0px;
@@ -72,14 +84,13 @@ li a:hover {
 </style>
 <title>学习笔记</title>
 </head>
-<body onload="refreshNavigator('android')">
+<body onload="">
 	<script type="text/javascript">
 	//顶部导航
 		function refreshNavigator(id){
 			
 			refreshElemetns("nav_normal",id)
 			refreshElemetns("nav_active",id)
-			loadingNavigatorItems(id, 10);
 		}
 		
 		function refreshElemetns(id,clickId){
@@ -95,26 +106,28 @@ li a:hover {
 			}
 		}
 	//左边导航
-	 item={id:"01",url:"http://www.w3schools.com/js/js_object_definition.asp",content:"JAVASCRIPT"}
-	function loadingNavigatorItems(name,cnt){
-		var nodes=document.getElementsByClassName("left_nav");
-		var temp=10-nodes.length;
-		for(var i=0;i<temp;i++){
-			var li=document.createElement("LI");
-			var text=document.createTextNode(name+"第"+i+"章");
-			var navigator=document.getElementById("left_navigator");
-			
-			li.class="left_nav";
-			li.style.listStyleType="none";
-			li.style.marginLeft="0";
-			li.appendChild(text);
-			navigator.appendChild(li);
-		}
-	}
 	function render(node){node.style.backgroundColor="red"}
+	function leftNavClick(url){
+		var node=document.getElementById("fr_content");
+		node.setAttribute("src", url);
+	}
 	
 	</script>
 	<jsp:include page="/jsp/title.jsp" flush="true" />
+	<%!
+		LeftNavItem item_0=new LeftNavItem("http://www.androidauthority.com/samsung-gear-s2-ios-beta-launch-712488/","android","android_chapter_1");
+		LeftNavItem item_1=new LeftNavItem("http://www.androidauthority.com/first-lg-v20-picture-evleaks-712422/","android","android_chapter_2");
+		LeftNavItem item_2=new LeftNavItem("http://www.androidauthority.com/xiaomi-redmi-note-4-unveiled-china-price-specs-features-712411/","android","android_chapter_3");
+		LeftNavItem item_3=new LeftNavItem("http://www.androidauthority.com/honor-8-concludes-global-tour-paris-launches-europe-712341/","android","android_chapter_4");
+		LeftNavItem item_4=new LeftNavItem("http://www.androidauthority.com/android-nougat-nexus-5-mod-712384/","android","android_chapter_5");
+		LeftNavItem item_5=new LeftNavItem("http://www.androidauthority.com/salt-lake-city-google-fiber-712373/","android","android_chapter_6");
+		LeftNavItem item_6=new LeftNavItem("http://www.androidauthority.com/drive-gets-notifications-homescreen-shortcuts-ics-gets-warning-712202/","android","android_chapter_7");
+		LeftNavItem item_7=new LeftNavItem("http://www.androidauthority.com/project-fis-wifi-assistant-serve-nexus-devices-soon-712319/","android","android_chapter_8");
+		LeftNavItem item_8=new LeftNavItem("http://www.androidauthority.com/bo-collaboration-lg-audio-v20-712312/","android","android_chapter_9");
+		LeftNavItem item_9=new LeftNavItem("http://www.androidauthority.com/pokemon-go-update-appraise-712327/","android","android_chapter_10");
+
+		
+	%>
 	<!--导航条-->
 	<ul id=nav_container >
 			<li class=li_normal><a class=nav_active id=android onClick="refreshNavigator('android')">Android</a></li>
@@ -130,12 +143,22 @@ li a:hover {
 	</ul>
 	<!-- 左边菜单 -->
 	<ul id=left_navigator>
+		<li id=left_nav_0 class=lef_nav onclick="leftNavClick('<%= item_0.getUrl() %>')"><%= item_0.getConent() %></li>
+		<li id=left_nav_1 class=lef_nav onclick="leftNavClick('<%= item_1.getUrl() %>')"><%= item_1.getConent() %></li>
+		<li id=left_nav_2 class=lef_nav onclick="leftNavClick('<%= item_2.getUrl() %>')"><%= item_2.getConent() %></li>
+		<li id=left_nav_3 class=lef_nav onclick="leftNavClick('<%= item_3.getUrl() %>')"><%= item_3.getConent() %></li>
+		<li id=left_nav_4 class=lef_nav onclick="leftNavClick('<%= item_4.getUrl() %>')"><%= item_4.getConent() %></li>
+		<li id=left_nav_5 class=lef_nav onclick="leftNavClick('<%= item_5.getUrl() %>')"><%= item_5.getConent() %></li>
+		<li id=left_nav_6 class=lef_nav onclick="leftNavClick('<%= item_6.getUrl() %>')"><%= item_6.getConent() %></li>
+		<li id=left_nav_7 class=lef_nav onclick="leftNavClick('<%= item_7.getUrl() %>')"><%= item_7.getConent() %></li>
+		<li id=left_nav_8 class=lef_nav onclick="leftNavClick('<%= item_8.getUrl() %>')"><%= item_8.getConent() %></li>
+		<li id=left_nav_9 class=lef_nav onclick="leftNavClick('<%= item_9.getUrl() %>')"><%= item_9.getConent() %></li>
 	
 	</ul>
 
 	
 	<p id="content"   >
-	<iframe  width="100%" height="800px"src="https://www.android.com/">
+	<iframe  id=fr_content width="100%" height="800px"src="https://www.android.com/">
 	</iframe>
 	</p>
 	<div>
